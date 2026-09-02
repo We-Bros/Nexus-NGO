@@ -117,10 +117,11 @@
 }
 
 .ft-logo-img {
-  width: 52px;
-  height: 52px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
-  object-fit: contain;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.15);
 }
 
 .ft-logo-text {

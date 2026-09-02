@@ -32,12 +32,13 @@
 }
 
 .header-logo-img {
-  height: 58px;
-  width: 58px;
-  object-fit: contain;
+  height: 62px;
+  width: 62px;
+  object-fit: cover;
   border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
   transition: transform 0.3s ease;
+  border: 2px solid rgba(28, 62, 112, 0.1);
 }
 
 .header-logo-group:hover .header-logo-img {
@@ -259,9 +260,10 @@
 }
 
 .drawer-logo {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .drawer-close-btn {
