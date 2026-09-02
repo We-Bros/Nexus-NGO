@@ -1,0 +1,18 @@
+services:
+  # Option 1: Static Site (Fastest, 100% Free on Render)
+  - type: web
+    name: nexus-human-rights-council
+    env: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+
+  # Option 2: Web Service (Node.js)
+  # - type: web
+  #   name: nexus-human-rights-service
+  #   env: node
+  #   buildCommand: npm install && npm run build
+  #   startCommand: node server.js
