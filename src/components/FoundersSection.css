@@ -1,179 +1,145 @@
+/* ==========================================================================
+   FOUNDERS SECTION — Minimalist Initial-Avatar Cards
+   ========================================================================== */
+
 .founders-section {
-  background-color: var(--color-bg-light);
-  border-top: 1px solid var(--color-border);
+  background: var(--color-bg-light);
 }
 
 .founders-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  gap: 40px;
+  max-width: 960px;
+  margin: 0 auto;
 }
 
+/* Card */
 .founder-card {
   background: #ffffff;
   border-radius: var(--radius-md);
-  overflow: hidden;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
-  border: 1px solid #eeeeee;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
+  padding: 48px 32px 40px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
 }
 
 .founder-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 16px 40px rgba(28, 62, 112, 0.12);
-  border-color: var(--color-gold-accent);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
 }
 
-.founder-image-wrapper {
-  position: relative;
-  width: 100%;
-  height: 270px;
-  overflow: hidden;
-  background: var(--color-navy-dark);
+/* Initial-Avatar */
+.founder-avatar-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 28px;
 }
 
-.founder-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
-  transition: transform 0.6s ease;
+.founder-initials-circle {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease;
 }
 
-.founder-card:hover .founder-img {
+.founder-card:hover .founder-initials-circle {
   transform: scale(1.06);
 }
 
-.founder-image-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0) 40%,
-    rgba(0, 0, 0, 0.7) 100%
-  );
-}
-
-.founder-video-btn {
-  position: absolute;
-  bottom: 16px;
-  left: 16px;
-  right: 16px;
-  background: rgba(15, 36, 68, 0.85);
-  backdrop-filter: blur(6px);
+.founder-initials-text {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 700;
   color: #ffffff;
-  padding: 8px 16px;
-  border-radius: var(--radius-full);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  font-family: var(--font-sans);
-  font-size: 13px;
-  font-weight: 600;
-  transition: all 0.2s ease;
-  z-index: 5;
+  letter-spacing: 2px;
+  user-select: none;
 }
 
-.founder-video-btn:hover {
-  background: var(--color-terracotta);
-  transform: scale(1.02);
-}
-
-.yt-icon-box {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: #ff0000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-left: 2px;
-}
-
+/* Info Body */
 .founder-info-body {
-  padding: 28px 24px;
-  flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.founder-name {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-text-heading);
+  margin: 0;
 }
 
 .founder-role-badge {
   display: inline-block;
-  font-family: var(--font-sans);
+  padding: 4px 14px;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
   color: var(--color-terracotta);
-  margin-bottom: 8px;
-}
-
-.founder-name {
-  font-size: 24px;
-  color: var(--color-primary-navy);
-  margin-bottom: 12px;
-  line-height: 1.25;
+  background: rgba(172, 51, 0, 0.08);
+  border-radius: var(--radius-full);
 }
 
 .founder-bio {
   font-size: 14.5px;
-  line-height: 1.6;
-  color: #555555;
-  margin-bottom: 24px;
-  flex: 1;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+  margin-top: 8px;
+  max-width: 280px;
 }
 
-.founder-card-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 14px;
-  border-top: 1px solid #f0f0f0;
+/* Channel Link */
+.founders-channel-link {
+  text-align: center;
+  margin-top: 48px;
 }
 
-.founder-yt-link {
+.channel-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  padding: 14px 32px;
+  background: #ff0000;
+  color: #ffffff;
   font-family: var(--font-sans);
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--color-primary-navy);
-  transition: color 0.2s ease;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  border-radius: var(--radius-sm);
+  transition: all 0.3s ease;
+  text-decoration: none;
 }
 
-.founder-yt-link:hover {
-  color: var(--color-terracotta);
+.channel-btn:hover {
+  background: #cc0000;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 0, 0, 0.25);
+  color: #ffffff;
 }
 
-.yt-red {
-  color: #ff0000;
-}
-
-.founder-ext-link {
-  color: #999999;
-  padding: 6px;
-  border-radius: 4px;
-  transition: all 0.2s ease;
-}
-
-.founder-ext-link:hover {
-  color: var(--color-terracotta);
-  background: #f4f4f4;
-}
-
+/* Responsive */
 @media (max-width: 991px) {
   .founders-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
   }
 }
 
-@media (max-width: 680px) {
+@media (max-width: 600px) {
   .founders-grid {
     grid-template-columns: 1fr;
+    gap: 24px;
+    max-width: 360px;
+  }
+  .founder-card {
+    padding: 36px 24px 32px;
   }
 }

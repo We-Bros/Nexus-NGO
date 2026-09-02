@@ -1,8 +1,8 @@
 import React from 'react';
-import { Play, Eye, Compass, ShieldCheck } from 'lucide-react';
+import { ExternalLink, Eye, Compass, Youtube } from 'lucide-react';
 import './VisionSpotlight.css';
 
-export default function VisionSpotlight({ data, onOpenVideo }) {
+export default function VisionSpotlight({ data }) {
   return (
     <section className="vision-spotlight-section" id="scroll-bottom">
       <div className="container">
@@ -13,21 +13,16 @@ export default function VisionSpotlight({ data, onOpenVideo }) {
             <h2 className="spotlight-heading">{data.title}</h2>
             <div className="spotlight-description">
               <p>{data.description}</p>
-              <div className="spotlight-highlights">
-                <div className="highlight-chip">
-                  <ShieldCheck size={18} className="chip-icon" />
-                  <span>24/7 Constitutional Defense</span>
-                </div>
-                <div className="highlight-chip">
-                  <Compass size={18} className="chip-icon" />
-                  <span>Grassroots Reach in UP & NCR</span>
-                </div>
-              </div>
             </div>
           </div>
 
           <div className="spotlight-video-col">
-            <div className="video-card-preview">
+            <a 
+              href={data.video.channelUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="video-card-preview"
+            >
               <img 
                 src={data.video.thumbnail} 
                 alt="Nexus Human Rights Video Preview" 
@@ -35,22 +30,17 @@ export default function VisionSpotlight({ data, onOpenVideo }) {
               />
               <div className="video-thumb-overlay" />
               
-              <button 
-                className="video-play-trigger"
-                onClick={() => onOpenVideo(data.video.youtubeId, data.video.title)}
-                aria-label="Play video"
-              >
-                <div className="play-pulse-ring" />
+              <div className="video-play-trigger">
                 <div className="play-circle-btn">
-                  <Play size={24} fill="#ffffff" />
+                  <Youtube size={28} />
                 </div>
-              </button>
+              </div>
 
               <div className="video-bottom-caption">
-                <span className="video-tag">FEATURED DOCUMENTARY</span>
+                <span className="video-tag">YOUTUBE CHANNEL</span>
                 <p className="video-title-text">{data.video.title}</p>
               </div>
-            </div>
+            </a>
           </div>
         </div>
 

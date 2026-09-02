@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { 
-  Phone, Mail, MapPin, Facebook, Instagram, Twitter, Linkedin, Youtube, 
-  ArrowUp, Check, Award, ShieldCheck 
+  Phone, Mail, MapPin, Youtube, 
+  ArrowUp, Check, ShieldCheck, Award 
 } from 'lucide-react';
 import './Footer.css';
 
@@ -110,14 +110,6 @@ export default function Footer({ org, navMenu }) {
                 <span>NGO Darpan: {org.darpanId}</span>
               </div>
             </div>
-
-            {/* Footer Thumbnails Grid */}
-            <div className="ft-thumb-gallery">
-              <img src="/images/gallery-education.jpg" alt="Activity" />
-              <img src="/images/gallery-healthcare.jpg" alt="Activity" />
-              <img src="/images/gallery-planting.jpg" alt="Activity" />
-              <img src="/images/gallery-nutrition.jpg" alt="Activity" />
-            </div>
           </div>
 
           {/* Right Columns: Navigation Menus */}
@@ -131,35 +123,24 @@ export default function Footer({ org, navMenu }) {
                 <li><a href="#social-feed">Stories from the Field</a></li>
                 <li><a href="#reports">Knowledge Hub</a></li>
                 <li><a href="#grievance">Emergency Legal Aid</a></li>
-                <li><a href="#blog">Blog</a></li>
               </ul>
             </div>
 
             <div className="ft-link-col">
               <h4>About Us</h4>
               <ul>
-                <li><a href="#leadership">People & Founders</a></li>
-                <li><a href="#leadership">Board & Advisors</a></li>
+                <li><a href="#leadership">Founders</a></li>
                 <li><a href="#vision">Our Vision & Mission</a></li>
                 <li><a href="#infographics">Core Values</a></li>
-              </ul>
-
-              <h4 style={{ marginTop: '24px' }}>Partners</h4>
-              <ul>
-                <li><a href="#partners">Institutional Partners</a></li>
-                <li><a href="#partners">Government & Legal Aid</a></li>
               </ul>
             </div>
 
             <div className="ft-link-col">
               <h4>Resources</h4>
               <ul>
-                <li><a href="#news-video">In The News</a></li>
                 <li><a href="#reports">Annual Reports</a></li>
-                <li><a href="#news-video">Films & Keynotes</a></li>
                 <li><a href="#infographics">Infographic Posters</a></li>
                 <li><a href="#contact">Contact Us</a></li>
-                <li><a href="#contact">Finance & Legal</a></li>
               </ul>
             </div>
 
@@ -175,32 +156,22 @@ export default function Footer({ org, navMenu }) {
           </div>
         </div>
 
-        {/* Domains Bar */}
-        <div className="footer-domains-bar">
-          <p>Official organization domains: <strong>nexus-humanrights.org | nhrci.org</strong></p>
-        </div>
-
-        {/* Bottom Bar: Copyright & Socials */}
+        {/* Bottom Bar: Copyright & YouTube */}
         <div className="footer-bottom-bar">
           <div className="ft-copyright">
-            <p>© 2026 Nexus Human Rights Council of India. All Rights Reserved. Equal Rights • Dignity for All.</p>
+            <p>© 2026 Nexus Human Rights Council of India. All Rights Reserved.</p>
           </div>
 
           <div className="ft-social-icons">
-            <a href={org.socialLinks.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-              <Facebook size={18} />
-            </a>
-            <a href={org.socialLinks.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <Instagram size={18} />
-            </a>
-            <a href={org.socialLinks.twitter} target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-              <Twitter size={18} />
-            </a>
-            <a href={org.socialLinks.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <Linkedin size={18} />
-            </a>
-            <a href={org.socialLinks.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <a 
+              href={org.socialLinks.youtube} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              aria-label="YouTube Channel"
+              className="ft-youtube-link"
+            >
               <Youtube size={18} />
+              <span>YouTube</span>
             </a>
           </div>
         </div>

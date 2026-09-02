@@ -294,23 +294,25 @@
 .ft-social-icons {
   display: flex;
   align-items: center;
-  gap: 12px;
 }
 
-.ft-social-icons a {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-  display: flex;
+.ft-youtube-link {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 0, 0, 0.15);
+  color: #ff4444;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
   transition: all 0.2s ease;
 }
 
-.ft-social-icons a:hover {
-  background: var(--color-terracotta);
+.ft-youtube-link:hover {
+  background: #ff0000;
   color: #ffffff;
   transform: translateY(-2px);
 }
