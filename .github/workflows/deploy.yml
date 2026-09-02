@@ -24,13 +24,19 @@ jobs:
       - name: Build production bundle
         run: npm run build
 
+      - name: Prepare deployment bundle
+        run: |
+          mkdir -p deploy_pkg
+          cp -r dist deploy_pkg/
+          cp server.js package.json package-lock.json deploy_pkg/
+
       - name: Deploy to EC2
         uses: easingthemes/ssh-deploy@main
         with:
           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
           REMOTE_HOST: ${{ secrets.EC2_HOST }}
           REMOTE_USER: ${{ secrets.EC2_USER }}
-          SOURCE: "dist/ server.js package.json package-lock.json"
+          SOURCE: "deploy_pkg/"
           TARGET: "/home/${{ secrets.EC2_USER }}/ngo-site"
           SCRIPT_AFTER: |
             cd /home/${{ secrets.EC2_USER }}/ngo-site
