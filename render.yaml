@@ -1,18 +1,16 @@
 services:
-  # Option 1: Static Site (Fastest, 100% Free on Render)
   - type: web
     name: nexus-human-rights-council
-    env: static
+    env: node
     buildCommand: npm install && npm run build
-    staticPublishPath: ./dist
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
+    startCommand: node server.js
+    envVars:
+      - key: BREVO_SMTP_LOGIN
+        sync: false
+      - key: BREVO_SMTP_KEY
+        sync: false
+      - key: SENDER_EMAIL
+        sync: false
+      - key: RECEIVER_EMAIL
+        sync: false
 
-  # Option 2: Web Service (Node.js)
-  # - type: web
-  #   name: nexus-human-rights-service
-  #   env: node
-  #   buildCommand: npm install && npm run build
-  #   startCommand: node server.js

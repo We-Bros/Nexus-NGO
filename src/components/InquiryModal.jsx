@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Send, ShieldAlert, CheckCircle, MapPin, Phone, Mail } from 'lucide-react';
+import { X, Send, ShieldAlert, CheckCircle, MapPin, Phone, Mail, AlertTriangle, Loader2 } from 'lucide-react';
 import './InquiryModal.css';
 
 export default function InquiryModal({ isOpen, onClose, initialType }) {
@@ -12,16 +12,53 @@ export default function InquiryModal({ isOpen, onClose, initialType }) {
     message: ''
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [docketRef, setDocketRef] = useState('');
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError('');
+
+    try {
+      const res = await fetch('/api/inquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Server error');
+      }
+
+      setDocketRef(data.docketRef);
+      setSubmitted(true);
+    } catch (err) {
+      console.error('Submission error:', err);
+      setError('Unable to submit your request. Please try again or call us directly at +91 120 4896530.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleReset = () => {
     setSubmitted(false);
+    setError('');
+    setLoading(false);
+    setDocketRef('');
+    setFormData({
+      name: '',
+      phone: '',
+      email: '',
+      type: initialType || 'Legal Aid & Grievance',
+      state: 'Uttar Pradesh',
+      message: ''
+    });
     onClose();
   };
 
@@ -62,6 +99,14 @@ export default function InquiryModal({ isOpen, onClose, initialType }) {
 
             <div className="inquiry-form-container">
               <h4>Submit Request / Grievance</h4>
+
+              {error && (
+                <div className="inquiry-error-banner">
+                  <AlertTriangle size={16} />
+                  <span>{error}</span>
+                </div>
+              )}
+
               <form onSubmit={handleSubmit} className="inquiry-form">
                 <div className="form-group">
                   <label>Full Name *</label>
@@ -138,9 +183,18 @@ export default function InquiryModal({ isOpen, onClose, initialType }) {
                   />
                 </div>
 
-                <button type="submit" className="inquiry-submit-btn">
-                  <Send size={16} />
-                  <span>Submit to Legal Aid Desk</span>
+                <button type="submit" className="inquiry-submit-btn" disabled={loading}>
+                  {loading ? (
+                    <>
+                      <Loader2 size={16} className="inquiry-spinner" />
+                      <span>Submitting...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Send size={16} />
+                      <span>Submit to Legal Aid Desk</span>
+                    </>
+                  )}
                 </button>
               </form>
             </div>
@@ -150,7 +204,7 @@ export default function InquiryModal({ isOpen, onClose, initialType }) {
             <CheckCircle size={64} className="success-check-icon" />
             <h3>Request Successfully Registered</h3>
             <p className="success-reference">
-              Docket Ref: <strong>NHRCI-2026-{(Math.random() * 90000 + 10000).toFixed(0)}</strong>
+              Docket Ref: <strong>{docketRef}</strong>
             </p>
             <p className="success-message">
               Thank you, <strong>{formData.name}</strong>. Our designated legal counsel will review your submission and contact you at <strong>{formData.phone}</strong> within 24-48 hours.
