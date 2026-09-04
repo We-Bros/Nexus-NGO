@@ -8,7 +8,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 10000;
 const DIST_DIR = path.join(__dirname, 'dist');
 
 // ──────────────────────────────────────────────
@@ -151,8 +151,8 @@ app.use(express.static(DIST_DIR, {
   },
 }));
 
-// SPA fallback — serve index.html for all non-API, non-file routes
-app.get('*', (req, res) => {
+// SPA fallback — serve index.html for any unmatched routes (Express 5 compatible)
+app.use((req, res) => {
   const indexPath = path.join(DIST_DIR, 'index.html');
   res.sendFile(indexPath, (err) => {
     if (err && !res.headersSent) {

@@ -30,7 +30,7 @@ jobs:
           cp -r dist deploy_pkg/
           cp server.js package.json package-lock.json deploy_pkg/
           cat << EOF > deploy_pkg/.env
-          PORT=${{ secrets.PORT || '3000' }}
+          PORT=${{ secrets.PORT || '10000' }}
           BREVO_SMTP_LOGIN=${{ secrets.BREVO_SMTP_LOGIN }}
           BREVO_SMTP_KEY=${{ secrets.BREVO_SMTP_KEY }}
           SENDER_EMAIL=${{ secrets.SENDER_EMAIL }}
