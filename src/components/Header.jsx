@@ -70,15 +70,15 @@ export default function Header({ navMenu, onOpenSearch, onOpenInquiry }) {
           </ul>
         </nav>
 
-        {/* Header Actions: Grievance/Inquiry Button + Search Button + Hamburger */}
+        {/* Header Actions: Contact Us Button + Search Button + Hamburger */}
         <div className="header-actions">
           <button 
             className="action-btn emergency-btn"
-            onClick={onOpenInquiry}
-            title="File Citizen Grievance / Legal Aid Request"
+            onClick={() => onOpenInquiry('General Inquiry')}
+            title="Contact Us / Inquiry"
           >
-            <ShieldAlert size={16} />
-            <span className="emergency-btn-text">Legal Aid Desk</span>
+            <Mail size={16} />
+            <span className="emergency-btn-text">Contact Us</span>
           </button>
 
           <button 
@@ -161,10 +161,10 @@ export default function Header({ navMenu, onOpenSearch, onOpenInquiry }) {
               className="drawer-grievance-btn"
               onClick={() => {
                 setMobileMenuOpen(false);
-                onOpenInquiry();
+                onOpenInquiry('General Inquiry');
               }}
             >
-              <ShieldAlert size={16} /> File Grievance / Inquire
+              <Mail size={16} /> Contact Us
             </button>
           </div>
         </div>

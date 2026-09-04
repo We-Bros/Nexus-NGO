@@ -19,17 +19,6 @@ const DIST_DIR = path.join(__dirname, 'dist');
 //   BREVO_SMTP_KEY    = your Brevo SMTP key
 //   SENDER_EMAIL      = e.g. noreply@nexushumanrightscoi.com
 //   RECEIVER_EMAIL    = your client's Gmail address
-// ──────────────────────────────────────────────
-const transporter = nodemailer.createTransport({
-  host: 'smtp-relay.brevo.com',
-  port: 587,
-  secure: false,
-  auth: {
-    user: process.env.BREVO_SMTP_LOGIN,
-    pass: process.env.BREVO_SMTP_KEY,
-  },
-});
-
 const app = express();
 
 // Parse JSON request bodies
@@ -53,6 +42,44 @@ app.post('/api/inquiry', inquiryLimiter, async (req, res) => {
     if (!name || !phone || !message) {
       return res.status(400).json({ error: 'Name, phone, and message are required.' });
     }
+
+    const smtpLogin = process.env.BREVO_SMTP_LOGIN?.trim();
+    const smtpKey = process.env.BREVO_SMTP_KEY?.trim();
+    const senderEmail = (process.env.SENDER_EMAIL || 'noreply@nexushumanrightscoi.com').trim();
+    const receiverEmail = process.env.RECEIVER_EMAIL?.trim();
+
+    console.log('📨 Sending inquiry email...', {
+      hasLogin: !!smtpLogin,
+      hasKey: !!smtpKey,
+      sender: senderEmail,
+      receiver: receiverEmail || 'MISSING'
+    });
+
+    if (!smtpLogin || !smtpKey) {
+      const msg = 'BREVO_SMTP_LOGIN or BREVO_SMTP_KEY is missing in server environment variables. Please check GitHub Secrets.';
+      console.error(`❌ ${msg}`);
+      return res.status(500).json({ error: 'Email service configuration error.', details: msg });
+    }
+
+    if (!receiverEmail) {
+      const msg = 'RECEIVER_EMAIL is missing in server environment variables. Please check GitHub Secrets.';
+      console.error(`❌ ${msg}`);
+      return res.status(500).json({ error: 'Email service configuration error.', details: msg });
+    }
+
+    // Configure Nodemailer for Brevo SMTP relay
+    const transporter = nodemailer.createTransport({
+      host: 'smtp-relay.brevo.com',
+      port: 587,
+      secure: false, // port 587 uses STARTTLS
+      auth: {
+        user: smtpLogin,
+        pass: smtpKey,
+      },
+      tls: {
+        rejectUnauthorized: false,
+      },
+    });
 
     // Generate docket reference
     const docketRef = `NHRCI-2026-${(Math.random() * 90000 + 10000).toFixed(0)}`;
@@ -120,8 +147,8 @@ app.post('/api/inquiry', inquiryLimiter, async (req, res) => {
 
     // Send the email via Brevo SMTP
     await transporter.sendMail({
-      from: `"Nexus Human Rights" <${process.env.SENDER_EMAIL || 'noreply@nexushumanrightscoi.com'}>`,
-      to: process.env.RECEIVER_EMAIL,
+      from: `"Nexus Human Rights" <${senderEmail}>`,
+      to: receiverEmail,
       subject: `New ${type} Inquiry — ${name} [${docketRef}]`,
       html: htmlBody,
     });
@@ -130,7 +157,10 @@ app.post('/api/inquiry', inquiryLimiter, async (req, res) => {
     res.json({ success: true, docketRef });
   } catch (err) {
     console.error('❌ Email send error:', err);
-    res.status(500).json({ error: 'Failed to send your inquiry. Please try again.' });
+    res.status(500).json({ 
+      error: 'Failed to send your inquiry. Please try again.',
+      details: err.message || String(err)
+    });
   }
 });
 

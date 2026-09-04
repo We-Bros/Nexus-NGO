@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Send, ShieldAlert, CheckCircle, MapPin, Phone, Mail, AlertTriangle, Loader2 } from 'lucide-react';
+import { X, Send, Mail, CheckCircle, MapPin, Phone, AlertTriangle, Loader2 } from 'lucide-react';
 import './InquiryModal.css';
 
 export default function InquiryModal({ isOpen, onClose, initialType }) {
@@ -7,7 +7,7 @@ export default function InquiryModal({ isOpen, onClose, initialType }) {
     name: '',
     phone: '',
     email: '',
-    type: initialType || 'Legal Aid & Grievance',
+    type: initialType || 'General Inquiry',
     state: 'Uttar Pradesh',
     message: ''
   });
@@ -33,14 +33,14 @@ export default function InquiryModal({ isOpen, onClose, initialType }) {
       const data = await res.json();
 
       if (!res.ok) {
-        throw new Error(data.error || 'Server error');
+        throw new Error(data.details || data.error || 'Server error');
       }
 
       setDocketRef(data.docketRef);
       setSubmitted(true);
     } catch (err) {
       console.error('Submission error:', err);
-      setError('Unable to submit your request. Please try again or call us directly at +91 120 4896530.');
+      setError(err.message || 'Unable to submit your request. Please try again or contact us directly at +91 120 4896530.');
     } finally {
       setLoading(false);
     }
@@ -55,7 +55,7 @@ export default function InquiryModal({ isOpen, onClose, initialType }) {
       name: '',
       phone: '',
       email: '',
-      type: initialType || 'Legal Aid & Grievance',
+      type: initialType || 'General Inquiry',
       state: 'Uttar Pradesh',
       message: ''
     });
@@ -73,12 +73,12 @@ export default function InquiryModal({ isOpen, onClose, initialType }) {
           <div className="inquiry-form-layout">
             <div className="inquiry-sidebar">
               <div className="inquiry-badge">
-                <ShieldAlert size={16} />
-                <span>OFFICIAL LEGAL REDRESSAL</span>
+                <Mail size={16} />
+                <span>CONTACT & INQUIRY</span>
               </div>
-              <h3>Nexus Human Rights Legal Aid Desk</h3>
+              <h3>Contact Nexus Human Rights</h3>
               <p>
-                Confidential, free legal consultation and rights violation grievance redressal mechanism managed by Nexus Human Rights Council.
+                Send us your grievance, fellowship query, team application, or general inquiry. Our team will get in touch with you promptly.
               </p>
 
               <div className="inquiry-office-info">
@@ -88,17 +88,17 @@ export default function InquiryModal({ isOpen, onClose, initialType }) {
                 </div>
                 <div className="info-row">
                   <Phone size={16} className="info-icon" />
-                  <span>+91 120 4896530 (Toll Free Desk)</span>
+                  <span>+91 120 4896530 (Helpline)</span>
                 </div>
                 <div className="info-row">
                   <Mail size={16} className="info-icon" />
-                  <span>grievance@nhrci.org</span>
+                  <span>contact@nhrci.org</span>
                 </div>
               </div>
             </div>
 
             <div className="inquiry-form-container">
-              <h4>Submit Request / Grievance</h4>
+              <h4>Contact Us</h4>
 
               {error && (
                 <div className="inquiry-error-banner">
@@ -144,14 +144,15 @@ export default function InquiryModal({ isOpen, onClose, initialType }) {
 
                 <div className="form-row-2">
                   <div className="form-group">
-                    <label>Request Category *</label>
+                    <label>Inquiry Category *</label>
                     <select 
                       value={formData.type}
                       onChange={(e) => setFormData({ ...formData, type: e.target.value })}
                     >
-                      <option value="Legal Aid & Grievance">Legal Aid & Emergency Grievance</option>
+                      <option value="General Inquiry">General Inquiry</option>
+                      <option value="Legal Aid & Grievance">Legal Aid & Grievance</option>
+                      <option value="Join Our Team">Join Our Team / Careers</option>
                       <option value="Fellowship 2026">Human Rights Fellowship 2026</option>
-                      <option value="Team Application">Careers / Open Positions</option>
                       <option value="Volunteer Network">Volunteer Registration</option>
                       <option value="Partnership / CSR">Institutional Partnership / CSR</option>
                     </select>
@@ -173,11 +174,11 @@ export default function InquiryModal({ isOpen, onClose, initialType }) {
                 </div>
 
                 <div className="form-group">
-                  <label>Brief Description / Grievance Details *</label>
+                  <label>Your Message / Details *</label>
                   <textarea 
                     rows={4}
                     required
-                    placeholder="Please provide relevant background context or questions..."
+                    placeholder="Please provide details of your inquiry, message, or questions..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   />
@@ -187,12 +188,12 @@ export default function InquiryModal({ isOpen, onClose, initialType }) {
                   {loading ? (
                     <>
                       <Loader2 size={16} className="inquiry-spinner" />
-                      <span>Submitting...</span>
+                      <span>Sending Message...</span>
                     </>
                   ) : (
                     <>
                       <Send size={16} />
-                      <span>Submit to Legal Aid Desk</span>
+                      <span>Send Message</span>
                     </>
                   )}
                 </button>
@@ -202,12 +203,12 @@ export default function InquiryModal({ isOpen, onClose, initialType }) {
         ) : (
           <div className="inquiry-success-box">
             <CheckCircle size={64} className="success-check-icon" />
-            <h3>Request Successfully Registered</h3>
+            <h3>Message Successfully Sent</h3>
             <p className="success-reference">
-              Docket Ref: <strong>{docketRef}</strong>
+              Reference ID: <strong>{docketRef}</strong>
             </p>
             <p className="success-message">
-              Thank you, <strong>{formData.name}</strong>. Our designated legal counsel will review your submission and contact you at <strong>{formData.phone}</strong> within 24-48 hours.
+              Thank you, <strong>{formData.name}</strong>. Your message has been received. Our team will review your submission and contact you at <strong>{formData.phone}</strong> promptly.
             </p>
             <button className="inquiry-done-btn" onClick={handleReset}>
               Close Window

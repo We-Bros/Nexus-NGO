@@ -1,20 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { 
   Phone, Mail, MapPin, Youtube, 
-  ArrowUp, Check, ShieldCheck, Award 
+  ArrowUp, ShieldCheck, Award 
 } from 'lucide-react';
 import './Footer.css';
 
 export default function Footer({ org, navMenu }) {
-  const [newsletter, setNewsletter] = useState({ firstName: '', lastName: '', email: '' });
-  const [subscribed, setSubscribed] = useState(false);
-
-  const handleSubscribe = (e) => {
-    e.preventDefault();
-    if (!newsletter.email) return;
-    setSubscribed(true);
-  };
-
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -22,50 +13,6 @@ export default function Footer({ org, navMenu }) {
   return (
     <footer className="site-footer" id="contact">
       <div className="container-fluid footer-inner-container">
-        
-        {/* Newsletter Subscription Strip */}
-        <div className="footer-newsletter-row">
-          <div className="newsletter-title-col">
-            <h2>Subscribe to our Newsletter</h2>
-            <p>Stay updated on human rights advocacy, legal aid clinics, and research publications.</p>
-          </div>
-
-          <div className="newsletter-form-col">
-            {!subscribed ? (
-              <form onSubmit={handleSubscribe} className="newsletter-form">
-                <input 
-                  type="text" 
-                  placeholder="First Name"
-                  required
-                  value={newsletter.firstName}
-                  onChange={(e) => setNewsletter({ ...newsletter, firstName: e.target.value })}
-                />
-                <input 
-                  type="text" 
-                  placeholder="Last Name"
-                  required
-                  value={newsletter.lastName}
-                  onChange={(e) => setNewsletter({ ...newsletter, lastName: e.target.value })}
-                />
-                <input 
-                  type="email" 
-                  placeholder="Email Address"
-                  required
-                  value={newsletter.email}
-                  onChange={(e) => setNewsletter({ ...newsletter, email: e.target.value })}
-                />
-                <button type="submit" className="newsletter-submit-btn">
-                  Submit
-                </button>
-              </form>
-            ) : (
-              <div className="newsletter-success-tag">
-                <Check size={18} />
-                <span>Thank you for subscribing to Nexus Human Rights updates!</span>
-              </div>
-            )}
-          </div>
-        </div>
 
         {/* Main Footer Content */}
         <div className="footer-main-grid">

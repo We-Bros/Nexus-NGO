@@ -14,7 +14,7 @@ export default function JoinUsCTA({ joinUs, onOpenInquiry }) {
           <div className="join-us-buttons-row">
             <button 
               className="join-btn-primary"
-              onClick={() => onOpenInquiry('Team Application')}
+              onClick={() => onOpenInquiry('Join Our Team')}
             >
               <UserPlus size={18} />
               <span>JOIN OUR TEAM</span>

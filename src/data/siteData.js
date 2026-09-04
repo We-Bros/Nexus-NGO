@@ -165,14 +165,14 @@ export const siteData = {
       name: "Athar Abbas",
       initials: "AA",
       role: "Chairman & Co-Founder",
-      bio: "Dedicated advocate for social justice, community upliftment, and institutional reform in underserved regions.",
+      bio: "Visionary leader driving the mission of equitable human rights access and grassroots empowerment across India.",
       accentColor: "#ac3300"
     },
     {
       name: "Krishna Kumar Mishra",
       initials: "KM",
       role: "Chairman & Co-Founder",
-      bio: "Champion of constitutional rights, legal literacy, and dignified access to justice for every citizen.",
+      bio: "Visionary leader driving the mission of equitable human rights access and grassroots empowerment across India.",
       accentColor: "#e49728"
     }
   ],

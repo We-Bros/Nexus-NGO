@@ -22,14 +22,14 @@ export default function App() {
   // Modal states
   const [searchOpen, setSearchOpen] = useState(false);
   const [lightboxModal, setLightboxModal] = useState({ isOpen: false, image: '', title: '', subtitle: '' });
-  const [inquiryModal, setInquiryModal] = useState({ isOpen: false, initialType: 'Legal Aid & Grievance' });
+  const [inquiryModal, setInquiryModal] = useState({ isOpen: false, initialType: 'General Inquiry' });
 
   // Handlers
   const handleOpenLightbox = (image, title, subtitle) => {
     setLightboxModal({ isOpen: true, image, title, subtitle });
   };
 
-  const handleOpenInquiry = (initialType = 'Legal Aid & Grievance') => {
+  const handleOpenInquiry = (initialType = 'General Inquiry') => {
     setInquiryModal({ isOpen: true, initialType });
   };
 
@@ -39,7 +39,7 @@ export default function App() {
       <Header 
         navMenu={siteData.navMenu}
         onOpenSearch={() => setSearchOpen(true)}
-        onOpenInquiry={() => handleOpenInquiry('Legal Aid & Grievance')}
+        onOpenInquiry={() => handleOpenInquiry('General Inquiry')}
       />
 
       {/* 2. Hero Carousel Slider */}

@@ -9,7 +9,7 @@ export default function SearchModal({ isOpen, onClose }) {
 
   const quickLinks = [
     { title: "Human Rights Infographic Posters", category: "Resources", icon: <FileText size={16} />, href: "#infographics" },
-    { title: "Emergency Legal Aid & Grievance Desk", category: "Our Work", icon: <Shield size={16} />, href: "#grievance" },
+    { title: "Contact & Inquiry Desk", category: "Our Work", icon: <Shield size={16} />, href: "#contact" },
     { title: "Founders & Board of Advisors", category: "About Us", icon: <Users size={16} />, href: "#leadership" },
     { title: "Annual Impact & Field Report 2026", category: "Publications", icon: <BookOpen size={16} />, href: "#reports" }
   ];
