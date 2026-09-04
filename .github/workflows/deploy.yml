@@ -45,6 +45,7 @@ jobs:
           REMOTE_USER: ${{ secrets.EC2_USER }}
           SOURCE: "deploy_pkg/"
           TARGET: "/home/${{ secrets.EC2_USER }}/ngo-site"
+          EXCLUDE: ""
           SCRIPT_AFTER: |
             cd /home/${{ secrets.EC2_USER }}/ngo-site
             npm ci --omit=dev

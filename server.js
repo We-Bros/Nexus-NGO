@@ -134,6 +134,11 @@ app.post('/api/inquiry', inquiryLimiter, async (req, res) => {
   }
 });
 
+// Health check endpoint
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok', timestamp: new Date().toISOString() });
+});
+
 // ─── Serve Static Files from dist/ ───────────
 app.use(express.static(DIST_DIR, {
   maxAge: '1y',
@@ -148,12 +153,18 @@ app.use(express.static(DIST_DIR, {
 
 // SPA fallback — serve index.html for all non-API, non-file routes
 app.get('*', (req, res) => {
-  res.sendFile(path.join(DIST_DIR, 'index.html'));
+  const indexPath = path.join(DIST_DIR, 'index.html');
+  res.sendFile(indexPath, (err) => {
+    if (err && !res.headersSent) {
+      console.error('❌ Error serving index.html:', err);
+      res.status(500).send('Server Error: Static build files not found.');
+    }
+  });
 });
 
 // ─── Start Server ────────────────────────────
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Server running on http://0.0.0.0:${PORT}`);
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 
   // Verify SMTP config on startup
   if (!process.env.BREVO_SMTP_LOGIN || !process.env.BREVO_SMTP_KEY || !process.env.RECEIVER_EMAIL) {
