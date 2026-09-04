@@ -145,11 +145,15 @@ app.post('/api/inquiry', inquiryLimiter, async (req, res) => {
       </div>
     `;
 
+    // Format category nicely for subject line
+    const cleanCategory = type.replace(/\s*Inquiry\s*$/i, '');
+    const subjectLine = `New ${cleanCategory} Inquiry — ${name} [${docketRef}]`;
+
     // Send the email via Brevo SMTP
     await transporter.sendMail({
       from: `"Nexus Human Rights" <${senderEmail}>`,
       to: receiverEmail,
-      subject: `New ${type} Inquiry — ${name} [${docketRef}]`,
+      subject: subjectLine,
       html: htmlBody,
     });
 
