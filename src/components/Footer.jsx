@@ -1,7 +1,7 @@
 import React from 'react';
 import { 
   Phone, Mail, MapPin, Youtube, 
-  ArrowUp, ShieldCheck, Award, Globe
+  ArrowUp, Globe
 } from 'lucide-react';
 import './Footer.css';
 
@@ -38,7 +38,7 @@ export default function Footer({ org, navMenu }) {
 
               <div className="ft-contact-item">
                 <Phone size={14} />
-                <span>Phone: <a href="tel:+911204896530">+91 120 4896530</a></span>
+                <span>Phone: <a href="tel:+917705005573">+91 77050 05573</a></span>
               </div>
               <div className="ft-contact-item">
                 <Mail size={14} />
@@ -47,18 +47,6 @@ export default function Footer({ org, navMenu }) {
               <div className="ft-contact-item">
                 <Globe size={14} />
                 <span>Website: <a href="https://nexushumanrightscoi.com/" target="_blank" rel="noopener noreferrer">nexushumanrightscoi.com</a></span>
-              </div>
-            </div>
-
-            {/* Verification / Certification Badges */}
-            <div className="ft-badges-row">
-              <div className="ft-badge-pill">
-                <ShieldCheck size={14} />
-                <span>Reg No: {org.registrationNo}</span>
-              </div>
-              <div className="ft-badge-pill">
-                <Award size={14} />
-                <span>NGO Darpan: {org.darpanId}</span>
               </div>
             </div>
           </div>

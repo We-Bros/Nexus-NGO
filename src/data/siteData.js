@@ -7,8 +7,6 @@ export const siteData = {
     quote: "\u201CHuman rights are not a privilege, but a right for everyone.\u201D",
     quoteAuthor: "United Nations Universal Declaration",
     established: "2018",
-    registrationNo: "NHRCI/UP/2018/78921",
-    darpanId: "UP/2018/0198452",
     address: {
       flat: "Flat No. 12A01/B",
       building: "Tower-S-3, Rishab Cloud 9",
@@ -21,8 +19,7 @@ export const siteData = {
       formatted: "Flat No. 12A01/B, Tower-S-3, Rishab Cloud 9, Sector-1, Vaishali, Ghaziabad, Uttar Pradesh \u2014 201010"
     },
     contact: {
-      phone: "+91 120 4896530",
-      mobile: "+91 98712 34567",
+      phone: "+91 77050 05573",
       email: "mail@nexushumanrightscoi.com",
       grievanceEmail: "mail@nexushumanrightscoi.com",
       domains: "nexushumanrightscoi.com",

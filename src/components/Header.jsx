@@ -154,7 +154,7 @@ export default function Header({ navMenu, onOpenSearch, onOpenInquiry }) {
             <h4>Registered Office</h4>
             <p>Flat No. 12A01/B, Tower-S-3, Rishab Cloud 9, Sector-1, Vaishali, Ghaziabad, UP — 201010</p>
             <div className="drawer-contact-links">
-              <a href="tel:+911204896530"><Phone size={14} /> +91 120 4896530</a>
+              <a href="tel:+917705005573"><Phone size={14} /> +91 77050 05573</a>
               <a href="mailto:mail@nexushumanrightscoi.com"><Mail size={14} /> mail@nexushumanrightscoi.com</a>
               <a href="https://nexushumanrightscoi.com/" target="_blank" rel="noopener noreferrer"><Globe size={14} /> nexushumanrightscoi.com</a>
             </div>

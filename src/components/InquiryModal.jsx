@@ -40,7 +40,7 @@ export default function InquiryModal({ isOpen, onClose, initialType }) {
       setSubmitted(true);
     } catch (err) {
       console.error('Submission error:', err);
-      setError(err.message || 'Unable to submit your request. Please try again or contact us directly at +91 120 4896530.');
+      setError(err.message || 'Unable to submit your request. Please try again or contact us directly at +91 77050 05573.');
     } finally {
       setLoading(false);
     }
@@ -88,7 +88,9 @@ export default function InquiryModal({ isOpen, onClose, initialType }) {
                 </div>
                 <div className="info-row">
                   <Phone size={16} className="info-icon" />
-                  <span>+91 120 4896530 (Helpline)</span>
+                  <a href="tel:+917705005573" style={{ color: 'inherit', textDecoration: 'none' }}>
+                    +91 77050 05573
+                  </a>
                 </div>
                 <div className="info-row">
                   <Mail size={16} className="info-icon" />
