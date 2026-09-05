@@ -64,20 +64,11 @@ export default {
           }
 
           const apiKey = (env.BREVO_API_KEY || env.BREVO_SMTP_KEY)?.trim();
-          const receiverEmail = env.RECEIVER_EMAIL?.trim();
+          const receiverEmail = (env.RECEIVER_EMAIL || 'mail@nexushumanrightscoi.com').trim();
           const senderEmail = (env.SENDER_EMAIL || 'mail@nexushumanrightscoi.com').trim();
 
           if (!apiKey) {
             const msg = 'BREVO_API_KEY (or BREVO_SMTP_KEY) is missing in Cloudflare Environment Variables.';
-            console.error(msg);
-            return new Response(
-              JSON.stringify({ error: 'Email service configuration error.', details: msg }),
-              { status: 500, headers: corsHeaders }
-            );
-          }
-
-          if (!receiverEmail) {
-            const msg = 'RECEIVER_EMAIL is missing in Cloudflare Environment Variables.';
             console.error(msg);
             return new Response(
               JSON.stringify({ error: 'Email service configuration error.', details: msg }),

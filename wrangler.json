@@ -3,6 +3,11 @@
   "name": "nexus-ngo",
   "main": "functions/worker.js",
   "compatibility_date": "2024-09-23",
+  "keep_vars": true,
+  "vars": {
+    "RECEIVER_EMAIL": "mail@nexushumanrightscoi.com",
+    "SENDER_EMAIL": "mail@nexushumanrightscoi.com"
+  },
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",
