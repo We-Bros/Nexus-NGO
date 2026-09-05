@@ -6,7 +6,7 @@ export default function FoundersSection({ founders }) {
   const channelUrl = "https://www.youtube.com/@NexushumanRightcouncilofindia";
 
   return (
-    <section className="founders-section section-padding" id="leadership">
+    <section className="founders-section section-padding section-boundary" id="leadership">
       <div className="container">
         <div className="section-title">
           <span className="section-badge">LEADERSHIP</span>

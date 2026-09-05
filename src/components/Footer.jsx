@@ -63,7 +63,6 @@ export default function Footer({ org, navMenu }) {
                 <li><a href="#what-we-do">What We Do</a></li>
                 <li><a href="#who-we-are">Who We Are</a></li>
                 <li><a href="#where-we-work">Where We Work</a></li>
-                <li><a href="#social-feed">Stories from the Field</a></li>
                 <li><a href="#grievance">Emergency Legal Aid</a></li>
               </ul>
             </div>
@@ -73,15 +72,15 @@ export default function Footer({ org, navMenu }) {
               <ul>
                 <li><a href="#leadership">Founders</a></li>
                 <li><a href="#vision">Our Vision & Mission</a></li>
-                <li><a href="#infographics">Core Values</a></li>
+                <li><a href="#values">Core Values</a></li>
               </ul>
             </div>
 
             <div className="ft-link-col">
               <h4>Resources</h4>
               <ul>
-                <li><a href="#infographics">Infographic Posters</a></li>
-                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="#contact">Contact & Office</a></li>
+                <li><a href="#join-us">Get Involved</a></li>
               </ul>
             </div>
 

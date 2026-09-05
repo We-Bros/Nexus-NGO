@@ -4,7 +4,7 @@ import './ThreePillars.css';
 
 export default function ThreePillars({ pillars }) {
   return (
-    <section className="three-pillars-section section-padding-sm" id="our-work">
+    <section className="three-pillars-section section-padding-sm section-boundary" id="our-work">
       <div className="container">
         <div className="pillars-grid">
           {pillars.map((pillar) => (

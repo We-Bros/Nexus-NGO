@@ -8,7 +8,7 @@ export default function SearchModal({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   const quickLinks = [
-    { title: "Human Rights Infographic Posters", category: "Resources", icon: <FileText size={16} />, href: "#infographics" },
+    { title: "Who We Are & What We Do", category: "Our Work", icon: <Shield size={16} />, href: "#who-we-are" },
     { title: "Contact & Inquiry Desk", category: "Our Work", icon: <Shield size={16} />, href: "#contact" },
     { title: "Founders & Board of Advisors", category: "About Us", icon: <Users size={16} />, href: "#leadership" },
     { title: "Our Core Mission & Vision", category: "About Us", icon: <BookOpen size={16} />, href: "#vision" }

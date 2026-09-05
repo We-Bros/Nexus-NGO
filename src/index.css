@@ -144,6 +144,23 @@ button {
   padding-bottom: 64px;
 }
 
+/* Subtle Minimalist Section Boundaries */
+.section-boundary {
+  position: relative;
+}
+
+.section-boundary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(92%, 1200px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(28, 62, 112, 0.12) 30%, rgba(172, 51, 0, 0.16) 70%, transparent 100%);
+  pointer-events: none;
+}
+
 /* Section Titles */
 .section-title {
   text-align: center;

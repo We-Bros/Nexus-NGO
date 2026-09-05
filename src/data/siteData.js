@@ -39,7 +39,6 @@ export const siteData = {
         { title: "What We Do", href: "#what-we-do" },
         { title: "Who We Are", href: "#who-we-are" },
         { title: "Where We Work", href: "#where-we-work" },
-        { title: "Stories from the Field", href: "#social-feed" },
         { title: "Emergency Legal Aid Cell", href: "#grievance" }
       ]
     },
@@ -65,7 +64,6 @@ export const siteData = {
       title: "Resources",
       href: "#resources",
       children: [
-        { title: "Infographic Posters", href: "#infographics" },
         { title: "Contact & Registered Office", href: "#contact" }
       ]
     }
@@ -183,76 +181,7 @@ export const siteData = {
   ],
 
 
-  socialFeed: [
-    {
-      id: 1,
-      handle: "nexushumanrights",
-      location: "Vaishali, Ghaziabad",
-      image: "/images/gallery-education.jpg",
-      caption: "\u201CEqual rights begin with awareness.\u201D Over 150 women and youth gathered at our legal literacy camp in Ghaziabad today.",
-      likes: 342,
-      comments: 28,
-      date: "2 days ago",
-      tag: "#LegalLiteracy #HumanRightsForAll"
-    },
-    {
-      id: 2,
-      handle: "nexushumanrights",
-      location: "Meerut Rural Hub",
-      image: "/images/gallery-healthcare.jpg",
-      caption: "Our community paralegals walking the last mile to deliver grievance forms and free constitutional counseling.",
-      likes: 519,
-      comments: 41,
-      date: "4 days ago",
-      tag: "#GrassrootsDefenders #Dignity"
-    },
-    {
-      id: 3,
-      handle: "nexushumanrights",
-      location: "Delhi NCR Field Clinic",
-      image: "/images/gallery-planting.jpg",
-      caption: "Every child deserves protection, clean environment, and uncompromised access to education. Team Nexus in action.",
-      likes: 427,
-      comments: 19,
-      date: "1 week ago",
-      tag: "#ChildRights #RightToEducation"
-    },
-    {
-      id: 4,
-      handle: "nexushumanrights",
-      location: "National Legal Aid Conclave",
-      image: "/images/gallery-nutrition.jpg",
-      caption: "Convening legal scholars, grassroots activists, and judicial luminaries to strengthen human rights enforcement frameworks.",
-      likes: 680,
-      comments: 54,
-      date: "2 weeks ago",
-      tag: "#JusticeAtScale #NexusCouncil"
-    }
-  ],
 
-  infographics: [
-    {
-      id: 1,
-      title: "Human Rights \u2014 Core Principles & Features",
-      subtitle: "Equal Rights \u2022 Dignity for All \u2022 Inherent, Universal, Indivisible",
-      image: "/images/infographic-2.jpeg",
-      previewText: "Key Features: Universal, Inherent, Indivisible, Inalienable, Interdependent, Equal."
-    },
-    {
-      id: 2,
-      title: "Human Rights \u2014 Importance & Examples",
-      subtitle: "Humanity Unites, Rights Empower \u2022 United Nations Birthright Declaration",
-      image: "/images/infographic-1.jpeg",
-      previewText: "Examples: Right to life, equality, religion, education, health, fair trial, clean environment."
-    },
-    {
-      id: 3,
-      title: "Official Registered Office Plaque",
-      subtitle: "Flat No. 12A01/B, Tower-S-3, Rishab Cloud 9, Sector-1, Vaishali, Ghaziabad",
-      image: "/images/office-plaque.jpeg",
-      previewText: "Officially registered premises of Nexus Human Rights Council of India."
-    }
-  ],
 
   joinUs: {
     heading: "Come Join Us",

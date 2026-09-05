@@ -4,7 +4,7 @@ import './JoinUsCTA.css';
 
 export default function JoinUsCTA({ joinUs, onOpenInquiry }) {
   return (
-    <section className="join-us-section" id="join-us">
+    <section className="join-us-section section-boundary" id="join-us">
       <div className="container text-center">
         <div className="join-us-inner">
           <span className="join-us-pill">GET INVOLVED</span>

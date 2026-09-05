@@ -4,7 +4,7 @@ import './VisionSpotlight.css';
 
 export default function VisionSpotlight({ data }) {
   return (
-    <section className="vision-spotlight-section" id="scroll-bottom">
+    <section className="vision-spotlight-section section-boundary" id="scroll-bottom">
       <div className="container">
         {/* Top Split: Narrative Left + Video Right */}
         <div className="spotlight-top-grid">
