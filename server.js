@@ -17,7 +17,7 @@ const DIST_DIR = path.join(__dirname, 'dist');
 // Set these in Render Dashboard → Environment:
 //   BREVO_SMTP_LOGIN  = your Brevo account email
 //   BREVO_SMTP_KEY    = your Brevo SMTP key
-//   SENDER_EMAIL      = e.g. noreply@nexushumanrightscoi.com
+//   SENDER_EMAIL      = e.g. mail@nexushumanrightscoi.com
 //   RECEIVER_EMAIL    = your client's Gmail address
 const app = express();
 
@@ -45,7 +45,7 @@ app.post('/api/inquiry', inquiryLimiter, async (req, res) => {
 
     const smtpLogin = process.env.BREVO_SMTP_LOGIN?.trim();
     const smtpKey = process.env.BREVO_SMTP_KEY?.trim();
-    const senderEmail = (process.env.SENDER_EMAIL || 'noreply@nexushumanrightscoi.com').trim();
+    const senderEmail = (process.env.SENDER_EMAIL || 'mail@nexushumanrightscoi.com').trim();
     const receiverEmail = process.env.RECEIVER_EMAIL?.trim();
 
     console.log('📨 Sending inquiry email...', {

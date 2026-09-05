@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search, Menu, X, ChevronDown, Phone, Mail, ShieldAlert } from 'lucide-react';
+import { Search, Menu, X, ChevronDown, Phone, Mail, ShieldAlert, Globe } from 'lucide-react';
 import './Header.css';
 
 export default function Header({ navMenu, onOpenSearch, onOpenInquiry }) {
@@ -155,7 +155,8 @@ export default function Header({ navMenu, onOpenSearch, onOpenInquiry }) {
             <p>Flat No. 12A01/B, Tower-S-3, Rishab Cloud 9, Sector-1, Vaishali, Ghaziabad, UP — 201010</p>
             <div className="drawer-contact-links">
               <a href="tel:+911204896530"><Phone size={14} /> +91 120 4896530</a>
-              <a href="mailto:contact@nhrci.org"><Mail size={14} /> contact@nhrci.org</a>
+              <a href="mailto:mail@nexushumanrightscoi.com"><Mail size={14} /> mail@nexushumanrightscoi.com</a>
+              <a href="https://nexushumanrightscoi.com/" target="_blank" rel="noopener noreferrer"><Globe size={14} /> nexushumanrightscoi.com</a>
             </div>
             <button 
               className="drawer-grievance-btn"

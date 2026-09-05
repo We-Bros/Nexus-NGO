@@ -23,9 +23,10 @@ export const siteData = {
     contact: {
       phone: "+91 120 4896530",
       mobile: "+91 98712 34567",
-      email: "contact@nexus-humanrights.org",
-      grievanceEmail: "grievance@nhrci.org",
-      domains: "nexus-humanrights.org | nhrci.org"
+      email: "mail@nexushumanrightscoi.com",
+      grievanceEmail: "mail@nexushumanrightscoi.com",
+      domains: "nexushumanrightscoi.com",
+      website: "https://nexushumanrightscoi.com/"
     },
     socialLinks: {
       youtube: "https://www.youtube.com/@NexushumanRightcouncilofindia"

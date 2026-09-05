@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Send, Mail, CheckCircle, MapPin, Phone, AlertTriangle, Loader2 } from 'lucide-react';
+import { X, Send, Mail, CheckCircle, MapPin, Phone, AlertTriangle, Loader2, Globe } from 'lucide-react';
 import './InquiryModal.css';
 
 export default function InquiryModal({ isOpen, onClose, initialType }) {
@@ -92,7 +92,15 @@ export default function InquiryModal({ isOpen, onClose, initialType }) {
                 </div>
                 <div className="info-row">
                   <Mail size={16} className="info-icon" />
-                  <span>contact@nhrci.org</span>
+                  <a href="mailto:mail@nexushumanrightscoi.com" style={{ color: 'inherit', textDecoration: 'none' }}>
+                    mail@nexushumanrightscoi.com
+                  </a>
+                </div>
+                <div className="info-row">
+                  <Globe size={16} className="info-icon" />
+                  <a href="https://nexushumanrightscoi.com/" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
+                    nexushumanrightscoi.com
+                  </a>
                 </div>
               </div>
             </div>

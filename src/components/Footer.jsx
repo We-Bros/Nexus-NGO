@@ -1,7 +1,7 @@
 import React from 'react';
 import { 
   Phone, Mail, MapPin, Youtube, 
-  ArrowUp, ShieldCheck, Award 
+  ArrowUp, ShieldCheck, Award, Globe
 } from 'lucide-react';
 import './Footer.css';
 
@@ -42,7 +42,11 @@ export default function Footer({ org, navMenu }) {
               </div>
               <div className="ft-contact-item">
                 <Mail size={14} />
-                <span>Email: <a href="mailto:contact@nhrci.org">contact@nhrci.org</a></span>
+                <span>Email: <a href="mailto:mail@nexushumanrightscoi.com">mail@nexushumanrightscoi.com</a></span>
+              </div>
+              <div className="ft-contact-item">
+                <Globe size={14} />
+                <span>Website: <a href="https://nexushumanrightscoi.com/" target="_blank" rel="noopener noreferrer">nexushumanrightscoi.com</a></span>
               </div>
             </div>
 
@@ -101,6 +105,11 @@ export default function Footer({ org, navMenu }) {
               </ul>
             </div>
           </div>
+        </div>
+
+        {/* Domains Bar */}
+        <div className="footer-domains-bar">
+          Official Domain: <strong><a href="https://nexushumanrightscoi.com/" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>nexushumanrightscoi.com</a></strong>
         </div>
 
         {/* Bottom Bar: Copyright & YouTube */}
