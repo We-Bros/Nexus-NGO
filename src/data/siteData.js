@@ -72,7 +72,7 @@ export const siteData = {
   heroSlides: [
     {
       id: 1,
-      image: "/images/hero-bg.jpg",
+      image: "/images/hero-advocacy.jpg",
       headline: "Delivering human rights defense, legal aid, and equality at scale across India",
       subline: "In partnership with grassroots communities, constitutional bodies, and dedicated frontliners",
       tag: "FRONT-LINE ADVOCACY",
