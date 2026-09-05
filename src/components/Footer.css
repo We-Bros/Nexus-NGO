@@ -182,6 +182,17 @@
   text-decoration: underline;
 }
 
+.ft-reg-no-line {
+  margin-top: 8px;
+  color: var(--color-gold-accent);
+  font-size: 13px;
+}
+
+.ft-reg-icon {
+  color: var(--color-gold-accent);
+  flex-shrink: 0;
+}
+
 .ft-badges-row {
   display: flex;
   flex-wrap: wrap;

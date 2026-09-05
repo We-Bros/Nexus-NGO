@@ -1,7 +1,7 @@
 import React from 'react';
 import { 
   Phone, Mail, MapPin, Youtube, 
-  ArrowUp, Globe
+  ArrowUp, Globe, ShieldCheck
 } from 'lucide-react';
 import './Footer.css';
 
@@ -48,6 +48,10 @@ export default function Footer({ org, navMenu }) {
                 <Globe size={14} />
                 <span>Website: <a href="https://nexushumanrightscoi.com/" target="_blank" rel="noopener noreferrer">nexushumanrightscoi.com</a></span>
               </div>
+              <div className="ft-contact-item ft-reg-no-line">
+                <ShieldCheck size={14} className="ft-reg-icon" />
+                <span>Reg. No: <strong>U88900UP2026NPL250995</strong></span>
+              </div>
             </div>
           </div>
 
@@ -60,7 +64,6 @@ export default function Footer({ org, navMenu }) {
                 <li><a href="#who-we-are">Who We Are</a></li>
                 <li><a href="#where-we-work">Where We Work</a></li>
                 <li><a href="#social-feed">Stories from the Field</a></li>
-                <li><a href="#reports">Knowledge Hub</a></li>
                 <li><a href="#grievance">Emergency Legal Aid</a></li>
               </ul>
             </div>
@@ -77,7 +80,6 @@ export default function Footer({ org, navMenu }) {
             <div className="ft-link-col">
               <h4>Resources</h4>
               <ul>
-                <li><a href="#reports">Annual Reports</a></li>
                 <li><a href="#infographics">Infographic Posters</a></li>
                 <li><a href="#contact">Contact Us</a></li>
               </ul>

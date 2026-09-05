@@ -344,6 +344,19 @@
   font-weight: 500;
 }
 
+.drawer-reg-no {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-primary-navy);
+  font-weight: 600;
+  font-size: 12px;
+  background: rgba(28, 62, 112, 0.08);
+  padding: 6px 10px;
+  border-radius: 4px;
+  margin-top: 4px;
+}
+
 .drawer-grievance-btn {
   width: 100%;
   display: flex;

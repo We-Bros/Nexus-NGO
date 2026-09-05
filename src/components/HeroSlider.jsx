@@ -40,10 +40,15 @@ export default function HeroSlider({ slides }) {
             className={`slide-item ${idx === currentSlide ? 'slide-active' : ''}`}
           >
             {/* Background Image with Overlay */}
-            <div 
-              className="slide-background"
-              style={{ backgroundImage: `url(${slide.image})` }}
-            />
+            <div className="slide-background">
+              <img 
+                src={slide.image} 
+                alt={slide.headline} 
+                className="slide-image-element"
+                loading={idx === 0 ? "eager" : "lazy"}
+                decoding="async"
+              />
+            </div>
             <div className="slide-overlay" />
 
             {/* Slide Content Box */}

@@ -7,6 +7,7 @@ export const siteData = {
     quote: "\u201CHuman rights are not a privilege, but a right for everyone.\u201D",
     quoteAuthor: "United Nations Universal Declaration",
     established: "2018",
+    registrationNo: "U88900UP2026NPL250995",
     address: {
       flat: "Flat No. 12A01/B",
       building: "Tower-S-3, Rishab Cloud 9",
@@ -39,7 +40,6 @@ export const siteData = {
         { title: "Who We Are", href: "#who-we-are" },
         { title: "Where We Work", href: "#where-we-work" },
         { title: "Stories from the Field", href: "#social-feed" },
-        { title: "Human Rights Knowledge Hub", href: "#reports" },
         { title: "Emergency Legal Aid Cell", href: "#grievance" }
       ]
     },
@@ -65,7 +65,6 @@ export const siteData = {
       title: "Resources",
       href: "#resources",
       children: [
-        { title: "Annual Reports", href: "#reports" },
         { title: "Infographic Posters", href: "#infographics" },
         { title: "Contact & Registered Office", href: "#contact" }
       ]
@@ -183,24 +182,6 @@ export const siteData = {
     { name: "A Better Tomorrow", desc: "Building sustainable, peaceful, and inclusive societies for generations." }
   ],
 
-  reports: [
-    {
-      id: 1,
-      title: "Annual Human Rights & Grassroots Legal Access Report 2026",
-      category: "Reports",
-      image: "/images/gallery-education.jpg",
-      pages: "64 Pages PDF",
-      summary: "Comprehensive assessment of frontline rights advocacy, emergency grievance resolutions, and community legal camps."
-    },
-    {
-      id: 2,
-      title: "Digital Grievance Redressal: Technology & Human Touch in Rural India",
-      category: "White Paper",
-      image: "/images/gallery-nutrition.jpg",
-      pages: "48 Pages PDF",
-      summary: "Ecosystem insights on WhatsApp-based emergency legal aid workflows and paralegal enablement in remote districts."
-    }
-  ],
 
   socialFeed: [
     {

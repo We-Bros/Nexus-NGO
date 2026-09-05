@@ -11,13 +11,13 @@ export default function SearchModal({ isOpen, onClose }) {
     { title: "Human Rights Infographic Posters", category: "Resources", icon: <FileText size={16} />, href: "#infographics" },
     { title: "Contact & Inquiry Desk", category: "Our Work", icon: <Shield size={16} />, href: "#contact" },
     { title: "Founders & Board of Advisors", category: "About Us", icon: <Users size={16} />, href: "#leadership" },
-    { title: "Annual Impact & Field Report 2026", category: "Publications", icon: <BookOpen size={16} />, href: "#reports" }
+    { title: "Our Core Mission & Vision", category: "About Us", icon: <BookOpen size={16} />, href: "#vision" }
   ];
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     if (!searchQuery.trim()) return;
-    alert(`Searching for: "${searchQuery}"\nFound 12 matching articles, reports, and legal resources.`);
+    alert(`Searching for: "${searchQuery}"\nFound 12 matching articles, guides, and legal resources.`);
   };
 
   return (
@@ -31,7 +31,7 @@ export default function SearchModal({ isOpen, onClose }) {
           <span className="search-pill">NEXUS KNOWLEDGE DISCOVERY</span>
           <h2 className="search-main-heading">Find what you are looking for...</h2>
           <p className="search-subtitle">
-            Search across human rights charters, legal aid guides, leadership keynotes, and field reports.
+            Search across human rights charters, legal aid guides, leadership keynotes, and community updates.
           </p>
 
           <form onSubmit={handleSearchSubmit} className="search-form-bar">

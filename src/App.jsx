@@ -6,7 +6,6 @@ import Header from './components/Header';
 import HeroSlider from './components/HeroSlider';
 import VisionSpotlight from './components/VisionSpotlight';
 import ThreePillars from './components/ThreePillars';
-import ReportsSection from './components/ReportsSection';
 import FoundersSection from './components/FoundersSection';
 import InfographicsSection from './components/InfographicsSection';
 import SocialFeed from './components/SocialFeed';
@@ -51,10 +50,7 @@ export default function App() {
       {/* 4. Three Impact Pillars (Who We Are, What We Do, Where We Work) */}
       <ThreePillars pillars={siteData.threePillars} />
 
-      {/* 5. Reports & Knowledge Hub */}
-      <ReportsSection reports={siteData.reports} />
-
-      {/* 6. Founders & Leadership */}
+      {/* 5. Founders & Leadership */}
       <FoundersSection founders={siteData.founders} />
 
       {/* 7. Human Rights Infographics */}
