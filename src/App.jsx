@@ -7,19 +7,26 @@ import HeroSlider from './components/HeroSlider';
 import VisionSpotlight from './components/VisionSpotlight';
 import ThreePillars from './components/ThreePillars';
 import FoundersSection from './components/FoundersSection';
+import InfographicsSection from './components/InfographicsSection';
 import JoinUsCTA from './components/JoinUsCTA';
 import Footer from './components/Footer';
 
 // Modals
 import SearchModal from './components/SearchModal';
+import LightboxModal from './components/LightboxModal';
 import InquiryModal from './components/InquiryModal';
 
 export default function App() {
   // Modal states
   const [searchOpen, setSearchOpen] = useState(false);
+  const [lightboxModal, setLightboxModal] = useState({ isOpen: false, image: '', title: '', subtitle: '' });
   const [inquiryModal, setInquiryModal] = useState({ isOpen: false, initialType: 'General Inquiry' });
 
   // Handlers
+  const handleOpenLightbox = (image, title, subtitle) => {
+    setLightboxModal({ isOpen: true, image, title, subtitle });
+  };
+
   const handleOpenInquiry = (initialType = 'General Inquiry') => {
     setInquiryModal({ isOpen: true, initialType });
   };
@@ -45,13 +52,23 @@ export default function App() {
       {/* 5. Founders & Leadership */}
       <FoundersSection founders={siteData.founders} />
 
-      {/* 6. Come Join Us CTA */}
+      <div className="section-boundary" />
+
+      {/* 6. Human Rights Core Framework Infographics (2 Key Posters) */}
+      <InfographicsSection 
+        infographics={siteData.infographics}
+        onOpenLightbox={handleOpenLightbox}
+      />
+
+      <div className="section-boundary" />
+
+      {/* 7. Come Join Us CTA */}
       <JoinUsCTA 
         joinUs={siteData.joinUs} 
         onOpenInquiry={handleOpenInquiry}
       />
 
-      {/* 7. Footer */}
+      {/* 8. Footer */}
       <Footer 
         org={siteData.org}
         navMenu={siteData.navMenu}
@@ -61,6 +78,14 @@ export default function App() {
       <SearchModal 
         isOpen={searchOpen} 
         onClose={() => setSearchOpen(false)} 
+      />
+
+      <LightboxModal 
+        isOpen={lightboxModal.isOpen}
+        onClose={() => setLightboxModal({ ...lightboxModal, isOpen: false })}
+        image={lightboxModal.image}
+        title={lightboxModal.title}
+        subtitle={lightboxModal.subtitle}
       />
 
       <InquiryModal 

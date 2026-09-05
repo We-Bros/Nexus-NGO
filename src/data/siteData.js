@@ -64,6 +64,7 @@ export const siteData = {
       title: "Resources",
       href: "#resources",
       children: [
+        { title: "Infographic Posters", href: "#infographics" },
         { title: "Contact & Registered Office", href: "#contact" }
       ]
     }
@@ -180,8 +181,22 @@ export const siteData = {
     { name: "A Better Tomorrow", desc: "Building sustainable, peaceful, and inclusive societies for generations." }
   ],
 
-
-
+  infographics: [
+    {
+      id: 1,
+      title: "Human Rights — Core Principles & Features",
+      subtitle: "Equal Rights • Dignity for All • Inherent, Universal, Indivisible",
+      image: "/images/infographic-2.jpeg",
+      previewText: "Key Features: Universal, Inherent, Indivisible, Inalienable, Interdependent, Equal."
+    },
+    {
+      id: 2,
+      title: "Human Rights — Importance & Examples",
+      subtitle: "Humanity Unites, Rights Empower • United Nations Birthright Declaration",
+      image: "/images/infographic-1.jpeg",
+      previewText: "Examples: Right to life, equality, religion, education, health, fair trial, clean environment."
+    }
+  ],
 
   joinUs: {
     heading: "Come Join Us",
